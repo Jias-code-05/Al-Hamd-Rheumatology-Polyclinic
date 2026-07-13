@@ -232,7 +232,6 @@ p:last-child { margin-bottom: 0; }
 .hero {
   position: relative; min-height: 75vh; display: flex;
   align-items: center;
-  background-image: url('/images/hero-clinic.jpg');
   background-size: cover; background-position: center;
   padding-top: var(--total-top);
 }

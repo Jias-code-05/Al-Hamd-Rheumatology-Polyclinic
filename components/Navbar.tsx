@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '@/lib/ThemeContext'
 import { CLINIC } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme()
@@ -63,7 +64,7 @@ export default function Navbar() {
       <header className={`site-header${scrolled ? ' scrolled' : ''}`} id="site-header">
         <div className="container header-inner">
           <Link href="/" className="site-logo">
-            <img src="/images/logo.jpg" alt="Al-Hamd Logo" className="site-logo-img" />
+            <img src={`${BASE_PATH}/images/logo.jpg`} alt="Al-Hamd Logo" className="site-logo-img" />
             <div className="logo-text">
               <div className="name">{CLINIC.name}</div>
               <div className="tagline">{CLINIC.tagline}</div>

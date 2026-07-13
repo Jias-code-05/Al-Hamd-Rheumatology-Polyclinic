@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { DOCTORS } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 
 const GAP = 24
 const PAD_H = 16  // horizontal clearance so hover border/shadow isn't clipped
@@ -88,7 +89,7 @@ export default function DoctorsSlider() {
             {DOCTORS.map(doc => (
               <div key={doc.id} className="doctor-card" style={cardStyle}>
                 <div className="doctor-photo">
-                  <img src={doc.photo} alt={doc.name} loading="lazy" />
+                  <img src={`${BASE_PATH}${doc.photo}`} alt={doc.name} loading="lazy" />
                   <div className="doctor-overlay">
                     <span className="specialty-badge">{doc.specialization}</span>
                   </div>

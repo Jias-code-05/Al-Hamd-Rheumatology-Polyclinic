@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { CLINIC } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -14,7 +15,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <Link href="/" className="site-logo" style={{ marginBottom: 0 }}>
-              <img src="/images/logo.jpg" alt="Al-Hamd Logo" className="site-logo-img" />
+              <img src={`${BASE_PATH}/images/logo.jpg`} alt="Al-Hamd Logo" className="site-logo-img" />
               <div className="logo-text">
                 <div className="name">{CLINIC.name}</div>
                 <div className="tagline">{CLINIC.tagline}</div>

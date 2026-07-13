@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { CLINIC, HEALTH_POSTS } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import ServicesSlider from '@/components/ServicesSlider'
 import DoctorsSlider from '@/components/DoctorsSlider'
@@ -13,7 +14,7 @@ export default function HomePage() {
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="hero">
+      <section className="hero" style={{ backgroundImage: `url(${BASE_PATH}/images/hero-clinic.jpg)` }}>
         <div className="hero-overlay" />
         <div className="container">
           <div className="hero-split">

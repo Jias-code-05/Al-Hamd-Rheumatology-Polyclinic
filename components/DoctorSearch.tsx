@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { DOCTORS } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 
 export default function DoctorSearch() {
   const [query, setQuery] = useState('')
@@ -48,7 +49,7 @@ export default function DoctorSearch() {
           {filtered.map(doc => (
             <div key={doc.id} className="doctor-card">
               <div className="doctor-photo">
-                <img src={doc.photo} alt={doc.name} loading="lazy" />
+                <img src={`${BASE_PATH}${doc.photo}`} alt={doc.name} loading="lazy" />
                 <div className="doctor-overlay">
                   <span className="specialty-badge">{doc.specialization}</span>
                 </div>

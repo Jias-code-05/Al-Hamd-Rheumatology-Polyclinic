@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { DOCTORS } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 
 export default function DoctorDetailClient({ id }: { id: string }) {
   const doc = DOCTORS.find(d => d.id === id)
@@ -33,7 +34,7 @@ export default function DoctorDetailClient({ id }: { id: string }) {
             {/* Photo */}
             <div>
               <div className="doctor-detail-photo">
-                <img src={doc.photo} alt={doc.name} />
+                <img src={`${BASE_PATH}${doc.photo}`} alt={doc.name} />
                 <div style={{
                   position: 'absolute', bottom: 0, left: 0, right: 0,
                   background: 'linear-gradient(to top, rgba(11,3,2,.85) 0%, transparent 60%)',
@@ -119,7 +120,7 @@ export default function DoctorDetailClient({ id }: { id: string }) {
               {DOCTORS.filter(d => d.id !== id).slice(0, 4).map(d => (
                 <div key={d.id} className="doctor-card">
                   <div className="doctor-photo">
-                    <img src={d.photo} alt={d.name} loading="lazy" />
+                    <img src={`${BASE_PATH}${d.photo}`} alt={d.name} loading="lazy" />
                     <div className="doctor-overlay">
                       <span className="specialty-badge">{d.specialization}</span>
                     </div>
