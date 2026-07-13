@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 44" fill="none">
+  <!-- Outer A shape: two thick diagonal legs meeting at a peak, with notch at base -->
+  <path d="M20 1L38 43H26L20 29L14 43H2L20 1Z" fill="#6C091B"/>
+  <!-- White hollow interior (negative space of the A letterform) -->
+  <polygon points="20,12 28,32 12,32" fill="white"/>
+</svg>
