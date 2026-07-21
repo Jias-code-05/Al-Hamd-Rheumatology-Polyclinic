@@ -50,6 +50,15 @@ export default function TestimonialSlider() {
   const next = () => go(idx < max ? idx + 1 : 0)
   const prev = () => go(idx > 0 ? idx - 1 : max)
 
+  const touchStartX = useRef<number | null>(null)
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const delta = e.changedTouches[0].clientX - touchStartX.current
+    if (Math.abs(delta) > 40) (delta < 0 ? next : prev)()
+    touchStartX.current = null
+  }
+
   useEffect(() => {
     timerRef.current = setInterval(next, 5000)
     return () => { if (timerRef.current) clearInterval(timerRef.current) }
@@ -67,7 +76,13 @@ export default function TestimonialSlider() {
 
   return (
     <div>
-      <div className="testimonials-slider" ref={sliderRef}>
+      <div
+        className="testimonials-slider"
+        ref={sliderRef}
+        style={{ touchAction: 'pan-y' }}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <div className="testimonials-track" ref={trackRef}>
           {TESTIMONIALS.map((t_: Testimonial) => (
             <div key={t_.id} className="testimonial-card" style={cardStyle}>

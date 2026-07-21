@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { HEALTH_POSTS, CLINIC } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 
 export default function HealthPostClient({ id }: { id: string }) {
   const post = HEALTH_POSTS.find(p => p.id === id)
@@ -47,7 +48,17 @@ export default function HealthPostClient({ id }: { id: string }) {
           <div className="post-detail-grid">
             {/* Content */}
             <div className="post-content">
+              <div className="post-featured-img">
+                <img src={`${BASE_PATH}${post.image}`} alt={post.title} />
+              </div>
+
               <div dangerouslySetInnerHTML={{ __html: post.content }} />
+
+              <div className="post-gallery">
+                {post.gallery.map((img, i) => (
+                  <img key={i} src={`${BASE_PATH}${img}`} alt={`${post.title} — infographic ${i + 2}`} loading="lazy" />
+                ))}
+              </div>
 
               <div style={{
                 marginTop: 36, padding: '20px 24px',

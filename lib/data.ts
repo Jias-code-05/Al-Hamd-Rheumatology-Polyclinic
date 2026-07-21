@@ -4,17 +4,18 @@ export const CLINIC = {
   tagline: 'Your Health, Our Priority',
   address: 'Ground Floor, Baab e Siddiq, Plot No. 38/3, Near Ali Masjid, BMCHS, Bahadurabad, Karachi',
   phone1: '+9221-34852413',
+  phone1_display: '(021) 34852413',
   phone2: '+92302-2425855',
+  phone2_display: '0302-2425855',
   whatsapp: '923272937991',
-  whatsapp_display: '+92327-2937991',
+  whatsapp_display: '+92 327 293 7991',
   timings: ['Mon – Sat', '11:00 AM – 8:00 PM'],
   facebook_url: 'https://www.facebook.com/AlHamdClinicKarachi/',
   instagram_url: 'https://www.instagram.com/alhamdclinic/',
-  google_maps_url: 'https://maps.app.goo.gl/L2xQmUZDynb29LP97',
+  google_maps_url: 'https://maps.app.goo.gl/qhjEB3ETW4upJU8H6',
+  map_cid: '6532284906225352571',
   about:
     'Al-Hamd Rheumatology & Polyclinic is a leading multi-specialty healthcare facility located in Bahadurabad, Karachi. We are dedicated to providing compassionate, high-quality healthcare to our community with a team of experienced specialists across multiple disciplines including Rheumatology, Neurology, Endocrinology, Dermatology, Pediatrics, Physiotherapy, and more.',
-  mission:
-    'To deliver expert medical care with compassion, integrity, and excellence — making quality healthcare accessible to all.',
 }
 
 // ─── Doctors ───────────────────────────────────────────────────
@@ -381,108 +382,135 @@ export interface HealthPost {
   tags: string[]
   date: string
   post_type: 'article' | 'video'
+  image: string
+  gallery: string[]
 }
 
 export const HEALTH_POSTS: HealthPost[] = [
   {
-    id: 'h1',
-    title: 'Understanding Rheumatoid Arthritis: Symptoms, Causes & Treatment',
+    id: 'ankylosing-spondylitis',
+    title: 'Ankylosing Spondylitis: Causes, Symptoms & Long-Term Management',
     excerpt:
-      'Rheumatoid arthritis (RA) is a chronic autoimmune disease that primarily affects joints, causing inflammation, pain, and stiffness. Early diagnosis is key to effective management.',
-    content: `<p>Rheumatoid arthritis (RA) is one of the most common autoimmune diseases, affecting millions worldwide. Unlike osteoarthritis, which is caused by wear and tear, RA occurs when the immune system mistakenly attacks the body's own tissues, particularly the synovium — the lining of the joints.</p>
+      'Ankylosing spondylitis is a chronic inflammatory condition that mainly affects the spine, causing pain, stiffness, and progressive loss of flexibility. Early evaluation is key to preserving mobility.',
+    content: `<p>Ankylosing spondylitis (AS) is a chronic form of inflammatory arthritis that primarily targets the spine and the sacroiliac joints connecting the lower spine to the pelvis. Over time, ongoing inflammation can cause new bone to form along the spine, leading to reduced flexibility and, in advanced cases, a stooped posture. AS belongs to a group of conditions known as spondyloarthropathies and tends to develop gradually — which is why persistent back stiffness, especially first thing in the morning or after long periods of rest, should never be dismissed as routine back pain.</p>
 <h3>Common Symptoms</h3>
 <ul>
-<li>Tender, warm, and swollen joints</li>
-<li>Morning stiffness lasting more than 30 minutes</li>
-<li>Fatigue and fever</li>
-<li>Symmetrical joint involvement (both hands, both knees)</li>
-<li>Rheumatoid nodules under the skin</li>
+<li>Persistent lower back pain that improves with movement but worsens with rest</li>
+<li>Morning stiffness that can last well over 30 minutes</li>
+<li>Reduced flexibility and difficulty bending or standing fully upright</li>
+<li>Neck pain and stiffness as the disease progresses further up the spine</li>
+<li>Fatigue linked to ongoing systemic inflammation</li>
 </ul>
-<h3>Diagnosis</h3>
-<p>Diagnosis involves physical examination, blood tests (RF factor, Anti-CCP antibodies, ESR, CRP), and imaging (X-rays, ultrasound, or MRI). Early diagnosis within the first few months of symptoms is crucial to prevent joint damage.</p>
-<h3>Treatment Options</h3>
-<p>Modern rheumatology offers excellent treatment options including DMARDs (disease-modifying antirheumatic drugs), biologics, and JAK inhibitors that can significantly slow disease progression and improve quality of life. At Al-Hamd, Dr. Tahira Perveen specializes in the latest RA treatments for both adults and children.</p>`,
-    tags: ['Rheumatology', 'Arthritis', 'Joint Pain'],
-    date: '2025-01-15',
+<h3>Who Is at Risk</h3>
+<ul>
+<li><strong>Family history:</strong> A genetic predisposition, particularly linked to the HLA-B27 gene, increases risk</li>
+<li><strong>Age:</strong> Symptoms most often begin between ages 20 and 40</li>
+<li><strong>Sex:</strong> AS is diagnosed more frequently in men, though it also affects women</li>
+<li><strong>Smoking:</strong> Can increase both the risk of developing AS and the severity of symptoms</li>
+<li><strong>Other autoimmune conditions:</strong> Related immune disorders may raise susceptibility</li>
+</ul>
+<p>Because early symptoms overlap with common mechanical back pain, AS is frequently misdiagnosed or diagnosed late, delaying treatment that could otherwise protect the spine from long-term damage.</p>
+<h3>Managing Ankylosing Spondylitis</h3>
+<ul>
+<li>Regular, guided exercise to maintain flexibility and posture</li>
+<li>Physical therapy to improve movement and mobility</li>
+<li>Anti-inflammatory treatment to help control pain and swelling</li>
+<li>Maintaining good posture to reduce stiffness and spinal damage</li>
+<li>Regular follow-up with a rheumatologist to monitor disease activity and adjust treatment</li>
+</ul>
+<p>With consistent care, most patients with ankylosing spondylitis continue to lead active, functional lives. At Al-Hamd, Dr. Tahira Perveen — Assistant Professor and Head of the Department of Rheumatology at Liaquat National Hospital & Medical College — specializes in the early diagnosis and long-term management of AS and other inflammatory spinal conditions.</p>`,
+    tags: ['Rheumatology', 'Ankylosing Spondylitis', 'Back Pain'],
+    date: '2026-06-10',
     post_type: 'article',
+    image: '/posts/AnkylosingSpondylitis_post/1.jpg',
+    gallery: [
+      '/posts/AnkylosingSpondylitis_post/2.jpg',
+      '/posts/AnkylosingSpondylitis_post/3.jpg',
+      '/posts/AnkylosingSpondylitis_post/4.jpg',
+    ],
   },
   {
-    id: 'h2',
-    title: 'Managing Diabetes: A Complete Guide to Blood Sugar Control',
+    id: 'diabetes',
+    title: 'Understanding Diabetes: Symptoms, Risk Factors & Everyday Management',
     excerpt:
-      'Diabetes affects millions in Pakistan. With the right approach — diet, exercise, medication and regular monitoring — it can be effectively managed to prevent complications.',
-    content: `<p>Diabetes mellitus is a chronic metabolic condition characterized by elevated blood glucose levels. In Pakistan, the prevalence of diabetes is among the highest in the world, making proper management critically important.</p>
-<h3>Types of Diabetes</h3>
+      'Diabetes is a long-term condition that affects how the body regulates blood sugar. Recognising the warning signs early and following a consistent care plan can prevent serious complications.',
+    content: `<p>Diabetes is a long-term condition that affects how the body controls blood sugar (glucose) levels. When glucose builds up in the blood instead of being used for energy, it can gradually damage blood vessels, nerves, and organs — which is why consistent monitoring and timely medical guidance are essential to long-term health.</p>
+<h3>Common Symptoms</h3>
+<p>Diabetes often develops silently, with few or no symptoms in its early stages. This is why routine screening — at least once a year — is recommended even for people who feel well. Warning signs to watch for include:</p>
 <ul>
-<li><strong>Type 1:</strong> Autoimmune destruction of insulin-producing cells, requires insulin therapy</li>
-<li><strong>Type 2:</strong> Most common form, related to insulin resistance and lifestyle factors</li>
-<li><strong>Gestational:</strong> Occurs during pregnancy</li>
+<li><strong>Excessive thirst:</strong> Feeling thirsty more often than usual</li>
+<li><strong>Frequent urination:</strong> Especially noticeable at night</li>
+<li><strong>Unexplained weight loss:</strong> Sudden weight loss without changes in diet</li>
+<li><strong>Blurred vision:</strong> High blood sugar levels can affect eyesight</li>
+<li><strong>Fatigue:</strong> Persistent low energy throughout the day</li>
 </ul>
-<h3>Key Management Strategies</h3>
+<h3>Risk Factors</h3>
 <ul>
-<li>Regular blood glucose monitoring (fasting and post-meal)</li>
-<li>HbA1c testing every 3 months</li>
-<li>Dietary modifications — reducing refined carbohydrates and sugars</li>
-<li>Regular physical activity (30 minutes daily)</li>
-<li>Medications as prescribed (oral hypoglycaemics or insulin)</li>
-<li>Annual eye, kidney and foot examinations</li>
+<li><strong>Family history:</strong> Genetics play an important role in diabetes risk</li>
+<li><strong>Obesity:</strong> Excess body weight increases insulin resistance</li>
+<li><strong>Physical inactivity:</strong> A sedentary lifestyle affects blood sugar control</li>
+<li><strong>Unhealthy diet:</strong> High intake of refined sugar and carbohydrates can contribute</li>
+<li><strong>High blood pressure:</strong> Often linked with diabetes and shares similar risk factors</li>
+<li><strong>Increasing age:</strong> Risk rises naturally as people get older</li>
 </ul>
-<p>Dr. Aqiba Sarfaraz at Al-Hamd provides comprehensive diabetes and endocrinology care with the latest management protocols.</p>`,
+<h3>Everyday Management</h3>
+<ul>
+<li>Follow a balanced diet to help maintain healthy blood sugar levels</li>
+<li>Stay physically active — regular exercise improves insulin sensitivity</li>
+<li>Monitor blood sugar regularly, including periodic HbA1c testing</li>
+<li>Take prescribed medications consistently and as directed</li>
+<li>Attend routine checkups, including annual eye, kidney, and foot examinations, to catch complications early</li>
+</ul>
+<p>Small, consistent lifestyle changes make a significant difference in long-term diabetes control. Dr. Aqiba Sarfaraz at Al-Hamd, a Consultant Endocrinologist, provides comprehensive diabetes and hormonal health care built around each patient's individual needs.</p>`,
     tags: ['Diabetes', 'Endocrinology', 'Blood Sugar'],
-    date: '2025-02-20',
+    date: '2026-06-25',
     post_type: 'article',
+    image: '/posts/Diabetes_Post/1.jpg',
+    gallery: [
+      '/posts/Diabetes_Post/2.jpg',
+      '/posts/Diabetes_Post/3.jpg',
+      '/posts/Diabetes_Post/4.jpg',
+    ],
   },
   {
-    id: 'h3',
-    title: 'Physiotherapy for Joint Recovery: What to Expect',
+    id: 'bells-palsy',
+    title: "Bell's Palsy: Recognising Sudden Facial Weakness and How to Recover",
     excerpt:
-      'Physiotherapy is a cornerstone of recovery after joint surgery or injury. Learn how a structured program can restore movement, reduce pain, and help you return to normal life.',
-    content: `<p>Physiotherapy plays a vital role in recovery from musculoskeletal injuries, joint surgeries, and chronic pain conditions. A skilled physiotherapist creates a personalised treatment plan to restore function and improve quality of life.</p>
-<h3>Conditions Treated</h3>
+      "Bell's palsy can cause sudden weakness or paralysis on one side of the face. Recognising the early signs and seeking prompt care greatly improves the chances of full recovery.",
+    content: `<p>Bell's palsy is a condition that causes sudden weakness or temporary paralysis on one side of the face, caused by inflammation or compression of the facial nerve. It can affect facial expressions, the ability to close one eye, and muscle control on the affected side. While the exact cause isn't always clear, the sudden onset can understandably be alarming — which is why prompt evaluation is important to rule out more serious conditions such as stroke and to begin treatment as early as possible.</p>
+<h3>Common Symptoms</h3>
 <ul>
-<li>Post-operative knee, hip, and shoulder rehabilitation</li>
-<li>Lower back pain and sciatica</li>
-<li>Sports injuries and muscle strains</li>
-<li>Arthritis-related joint stiffness</li>
-<li>Stroke rehabilitation and neurological conditions</li>
+<li><strong>Facial drooping:</strong> One side of the face may appear uneven or sag</li>
+<li><strong>Weak eye closure:</strong> Difficulty closing one eye tightly</li>
+<li><strong>Difficulty smiling:</strong> Facial muscles on the affected side become weak</li>
+<li><strong>Speech difficulty:</strong> Words may sound unclear or slurred</li>
 </ul>
-<h3>Treatment Techniques</h3>
+<h3>What Can Cause It</h3>
+<p>Bell's palsy is often linked to inflammation of the facial nerve, and several factors may increase vulnerability:</p>
 <ul>
-<li>Manual therapy and joint mobilization</li>
-<li>Therapeutic exercises and stretching programs</li>
-<li>Electrotherapy (TENS, ultrasound therapy)</li>
-<li>Hot and cold therapy</li>
-<li>Postural correction and ergonomic advice</li>
+<li><strong>Viral infections:</strong> Certain viruses can trigger nerve swelling</li>
+<li><strong>Weak immunity:</strong> Lower immunity can increase vulnerability</li>
+<li><strong>Diabetes:</strong> People with diabetes are at higher risk</li>
+<li><strong>Stress and fatigue:</strong> Physical stress may worsen the condition</li>
 </ul>
-<p>Dr. Farah Deeba at Al-Hamd offers daily physiotherapy sessions with a compassionate approach to help patients regain their independence.</p>`,
-    tags: ['Physiotherapy', 'Rehabilitation', 'Joint Recovery'],
-    date: '2025-03-10',
+<h3>Recovery and Treatment</h3>
+<p>The encouraging news is that most people recover well with timely treatment and care. Recovery is supported by:</p>
+<ul>
+<li>Facial exercises to improve muscle strength and movement</li>
+<li>Eye protection to prevent dryness and irritation while eye closure is weak</li>
+<li>Medications to help reduce inflammation and speed recovery</li>
+<li>Healthy nutrition to support nerve healing</li>
+<li>Timely consultation — the earlier treatment begins, the better the outcome</li>
+</ul>
+<p>If you notice sudden facial drooping, difficulty closing one eye, or any sudden change in facial movement, seek medical advice promptly. Dr. Shahnaz Shah, Consultant Neurologist at Al-Hamd, has extensive experience diagnosing and treating Bell's palsy and other neurological conditions.</p>`,
+    tags: ['Neurology', "Bell's Palsy", 'Facial Nerve'],
+    date: '2026-07-10',
     post_type: 'article',
-  },
-  {
-    id: 'h4',
-    title: 'Neurological Warning Signs You Should Never Ignore',
-    excerpt:
-      'Sudden headache, weakness on one side, vision changes — these could signal a stroke or other serious neurological emergency. Know when to seek immediate help.',
-    content: `<p>The brain and nervous system control everything in your body. When something goes wrong, the signs can appear suddenly and require immediate attention. Recognizing warning signs early can be the difference between full recovery and permanent disability.</p>
-<h3>Warning Signs of Stroke (Act FAST)</h3>
-<ul>
-<li><strong>F</strong>ace: Sudden facial drooping on one side</li>
-<li><strong>A</strong>rms: Weakness or numbness in one arm</li>
-<li><strong>S</strong>peech: Sudden slurred or confused speech</li>
-<li><strong>T</strong>ime: Call emergency services immediately</li>
-</ul>
-<h3>Other Neurological Red Flags</h3>
-<ul>
-<li>Severe "thunderclap" headache (worst headache of your life)</li>
-<li>Sudden loss of balance or coordination</li>
-<li>New onset seizures or convulsions</li>
-<li>Sudden vision loss in one or both eyes</li>
-<li>Confusion or altered consciousness</li>
-</ul>
-<p>Dr. Shahnaz Shah at Al-Hamd is a Consultant Neurologist with expertise in stroke, epilepsy, and headache disorders. Early consultation is always recommended.</p>`,
-    tags: ['Neurology', 'Stroke', 'Brain Health'],
-    date: '2025-04-05',
-    post_type: 'article',
+    image: '/posts/bellspalsy_post/1.jpg',
+    gallery: [
+      '/posts/bellspalsy_post/2.jpg',
+      '/posts/bellspalsy_post/3.jpg',
+      '/posts/bellspalsy_post/4.jpg',
+    ],
   },
 ]

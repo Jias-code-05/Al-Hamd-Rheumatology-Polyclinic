@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
             <div className="footer-contact-item">
               <i className="fa-solid fa-phone" />
-              <a href={`tel:${CLINIC.phone1}`}>{CLINIC.phone1}</a>
+              <a href={`tel:${CLINIC.phone1}`}>{CLINIC.phone1_display}</a>
             </div>
             <div className="footer-contact-item">
               <i className="fa-brands fa-whatsapp" />

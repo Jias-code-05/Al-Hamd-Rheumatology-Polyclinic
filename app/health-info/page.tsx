@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { HEALTH_POSTS } from '@/lib/data'
+import { BASE_PATH } from '@/lib/basePath'
 
 export default function HealthInfoPage() {
   const [query, setQuery] = useState('')
@@ -62,9 +63,7 @@ export default function HealthInfoPage() {
               {filtered.map(post => (
                 <Link key={post.id} href={`/health-info/${post.id}`} className="post-card">
                   <div className="post-thumb">
-                    <div className="post-thumb-placeholder">
-                      <i className="fa-solid fa-newspaper" />
-                    </div>
+                    <img src={`${BASE_PATH}${post.image}`} alt={post.title} loading="lazy" />
                     <span className="post-type-badge">
                       {post.post_type === 'video' ? 'Video' : 'Article'}
                     </span>

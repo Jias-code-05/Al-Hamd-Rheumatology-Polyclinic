@@ -45,6 +45,15 @@ export default function ServicesSlider() {
   const next = () => go(idx < max ? idx + 1 : 0)
   const prev = () => go(idx > 0 ? idx - 1 : max)
 
+  const touchStartX = useRef<number | null>(null)
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const delta = e.changedTouches[0].clientX - touchStartX.current
+    if (Math.abs(delta) > 40) (delta < 0 ? next : prev)()
+    touchStartX.current = null
+  }
+
   useEffect(() => {
     timerRef.current = setInterval(next, 4000)
     return () => { if (timerRef.current) clearInterval(timerRef.current) }
@@ -70,7 +79,11 @@ export default function ServicesSlider() {
         Net result: PAD_H pixels of clearance between clip edge and card edge
         so hover borders/shadows are never cut off.
       */}
-      <div style={{ overflow: 'hidden', padding: `${PAD_V}px ${PAD_H}px` }}>
+      <div
+        style={{ overflow: 'hidden', padding: `${PAD_V}px ${PAD_H}px`, touchAction: 'pan-y' }}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <div
           ref={sliderRef}
           style={{

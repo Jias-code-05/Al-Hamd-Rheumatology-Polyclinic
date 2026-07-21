@@ -54,7 +54,7 @@ export default function Navbar() {
             <span className="top-bar-divider" />
             <a href={`tel:${CLINIC.phone1}`} className="top-bar-link">
               <i className="fa-solid fa-phone" />
-              <span>{CLINIC.phone1}</span>
+              <span>{CLINIC.phone1_display}</span>
             </a>
           </div>
         </div>

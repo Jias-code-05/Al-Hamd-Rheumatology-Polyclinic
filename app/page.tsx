@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { CLINIC, HEALTH_POSTS } from '@/lib/data'
+import { CLINIC, DOCTORS, HEALTH_POSTS } from '@/lib/data'
 import { BASE_PATH } from '@/lib/basePath'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import ServicesSlider from '@/components/ServicesSlider'
@@ -10,6 +10,8 @@ import DoctorsSlider from '@/components/DoctorsSlider'
 export default function HomePage() {
   const waAppt = `https://wa.me/${CLINIC.whatsapp}?text=${encodeURIComponent('Hello, I would like to request an appointment.')}`
   const recentPosts = HEALTH_POSTS.slice(0, 3)
+  const founder = DOCTORS.find(d => d.id === '1')!
+  const waFounder = `https://wa.me/${founder.whatsapp}?text=${encodeURIComponent(`Hello, I would like to book an appointment with ${founder.name}`)}`
 
   return (
     <main>
@@ -21,13 +23,9 @@ export default function HomePage() {
 
             {/* Left: text */}
             <div className="hero-content">
-              <div className="hero-badge">
-                <i className="fa-solid fa-shield-heart" />
-                <span>Trusted Healthcare Since Day One</span>
-              </div>
               <h1>{CLINIC.name}</h1>
               <p className="hero-subtitle">
-                Expert rheumatology and specialist healthcare for the whole family, right in the heart of Bahadurabad.
+                From expert rheumatology care to trusted everyday medicine, helping you live a healthier, active, pain-free life.
               </p>
               <div className="hero-actions">
                 <a href={waAppt} target="_blank" rel="noopener" className="btn btn-whatsapp btn-lg">
@@ -45,8 +43,8 @@ export default function HomePage() {
                   <div className="lbl">Specialists</div>
                 </div>
                 <div className="hero-stat">
-                  <div className="num">1000+</div>
-                  <div className="lbl">Happy Patients</div>
+                  <div className="num">5000+</div>
+                  <div className="lbl">Satisfied Patients</div>
                 </div>
                 <div className="hero-stat">
                   <div className="num">4.9</div>
@@ -68,7 +66,7 @@ export default function HomePage() {
               <div className="quick-icon"><i className="fa-solid fa-phone" /></div>
               <div className="quick-text">
                 <div className="q-label">Phone</div>
-                <div className="q-value"><a href={`tel:${CLINIC.phone1}`}>{CLINIC.phone1}</a></div>
+                <div className="q-value"><a href={`tel:${CLINIC.phone1}`}>{CLINIC.phone1_display}</a></div>
               </div>
             </div>
             <div className="quick-item">
@@ -107,6 +105,38 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* ── Founder ──────────────────────────────────────────── */}
+      <section className="section founder-section">
+        <div className="container">
+          <div className="founder-grid">
+            <div className="founder-photo">
+              <img src={`${BASE_PATH}${founder.photo}`} alt={`${founder.name} - Founder of ${CLINIC.name}`} />
+            </div>
+            <div>
+              <span className="section-label">Founder &amp; Lead Rheumatologist</span>
+              <h2 className="section-title">{founder.name}</h2>
+              <p className="founder-credentials">{founder.qualification} · Fellow, American College of Rheumatology</p>
+              <p>
+                {founder.name} is the founder of {CLINIC.name} and serves as Assistant Professor and Head of the
+                Department of Rheumatology at Liaquat National Hospital &amp; Medical College, Karachi, a position
+                she has held since 2009. With over {founder.experience.replace(' years', '')} years of experience, she is an Executive
+                Member of the Pakistan Society for Rheumatology and a registered member of the Pakistan Medical
+                Commission (PMC), specializing in the diagnosis and treatment of Rheumatoid Arthritis, Lupus (SLE),
+                Osteoporosis, and other complex rheumatic and autoimmune conditions in both adults and children.
+              </p>
+              <div className="founder-actions" style={{ display: 'flex', gap: 12, marginTop: 20, flexWrap: 'wrap' }}>
+                <Link href={`/doctors/${founder.id}`} className="btn btn-outline">
+                  View Full Profile
+                </Link>
+                <a href={waFounder} target="_blank" rel="noopener" className="btn btn-whatsapp">
+                  <i className="fa-brands fa-whatsapp" /> Book Appointment
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── Services ─────────────────────────────────────────── */}
       <section className="section">
@@ -160,9 +190,7 @@ export default function HomePage() {
             {recentPosts.map(post => (
               <Link key={post.id} href={`/health-info/${post.id}`} className="post-card">
                 <div className="post-thumb">
-                  <div className="post-thumb-placeholder">
-                    <i className="fa-solid fa-newspaper" />
-                  </div>
+                  <img src={`${BASE_PATH}${post.image}`} alt={post.title} loading="lazy" />
                   <span className="post-type-badge">
                     {post.post_type === 'video' ? 'Video' : 'Article'}
                   </span>
